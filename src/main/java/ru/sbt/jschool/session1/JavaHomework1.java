@@ -7,13 +7,23 @@ import java.util.Properties;
 
 public class JavaHomework1 implements PropertyHelper{
 
-    public boolean flag = false;
+
     String[] args = null;
     String path = null;
+    Properties prop = null;
+
 
     public JavaHomework1(String[] args, String path) {
         this.args = args;
         this.path = path;
+        if(path!=null) {
+            prop = new Properties();
+            try {
+                prop.load(new FileInputStream(new File(path)));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     public static void main(String[] args) {
@@ -30,42 +40,35 @@ public class JavaHomework1 implements PropertyHelper{
                     String count = arg.substring(arg.indexOf("=")+1);
                     if(count.length()!=0){
                         value=count;
-                        flag=true;}
+                        return value;
+                    }
                 }
             }
 
         //Поиск в системных настройках
-        if(!flag) {
+
             Properties properties = System.getProperties();
             String n = properties.getProperty(name);
-
             if(n!=null){
                 value = n;
-                flag = true;
+                return value;
             }
-        }
+
 
         //Поиск в переменных окружения
-        if(!flag){
             String m = System.getenv(name);
             if(m!=null) {
                 value = m;
-                flag = true;
+                return value;
             }
-        }
+
 
         //Поиск в файле
-        if(!flag&&path!=null) {
-            Properties prop = new Properties();
-            try {
-                prop.load(new FileInputStream(new File(path)));
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+        if(prop!=null) {
             String k = prop.getProperty(name);
             if(k!=null){
                 value = k;
-                flag = true;
+                return value;
             }
         }
 
