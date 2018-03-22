@@ -9,13 +9,11 @@ public class JavaHomework1 implements PropertyHelper{
 
 
     String[] args = null;
-    String path = null;
     Properties prop = null;
 
 
     public JavaHomework1(String[] args, String path) {
         this.args = args;
-        this.path = path;
         if(path!=null) {
             prop = new Properties();
             try {
