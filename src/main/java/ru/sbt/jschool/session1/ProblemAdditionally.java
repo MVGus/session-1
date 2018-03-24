@@ -34,85 +34,15 @@ public class ProblemAdditionally {
 
 
     public long binaryToDec(String binary){
-        //var1:
+
         return Long.parseLong(binary,2);
 
-        //var2:
-       /* long a = 0;
-        for (int i = 0; i < binary.length(); i++) {
-            try{a+=Integer.parseInt(""+binary.charAt(binary.length()-i-1))*Math.pow(2,i);}
-            catch (NumberFormatException e){
-                System.out.println("Переданное число некорректно");
-            }
-        }
-        return a;*/
     }
 
     public String sumOfBinary(String b1,String b2){
-        //var1:
+
         return Long.toBinaryString(Long.parseLong(b1,2)+Long.parseLong(b2,2));
 
-        //var2:
-        /*
-        StringBuilder sb = new StringBuilder();
-        int n = b1.length()<b2.length() ? b1.length() : b2.length();
-        int max = b1.length()> b2.length() ? b1.length() : b2.length();
-        for (int i = 0; i <= max; i++) {
-            sb.append('0');
-        }
-        for (int i = 0; i < n; i++) {
-            char c1 = b1.charAt(b1.length()-i-1);
-            char c2 = b2.charAt(b2.length()-i-1);
-
-            if((c1!='0'&&c1!='1')||(c2!='0'&&c2!='1')){
-                System.out.println("Введенные числа некорректны");
-                return null;
-            }
-            if(c1==c2){
-                if(c1=='1'){
-                    for (int j = sb.length()-i-2; j >= 0; j--) {
-                        if(sb.charAt(j)=='0'){
-                            sb.setCharAt(j,'1');
-                            break;
-                        }else {
-                            sb.setCharAt(j,'0');
-                        }
-                    }
-                }
-            }
-            else{
-                for (int j = sb.length()-i-1; j >= 0; j--) {
-                    if(sb.charAt(j)=='0'){
-                        sb.setCharAt(j,'1');
-                        break;
-                    }
-                    else {
-                        sb.setCharAt(j,'0');
-                    }
-                }
-            }
-        }
-        String b3 = b1.length()>b2.length() ? b1 : b2;
-        for (int i = n; i < max; i++) {
-            char c3 = b3.charAt(b3.length()-i-1);
-            if(c3!='0'&&c3!='1'){
-                System.out.println("Введенные числа некорректны");
-                return null;
-            }
-            if(c3=='1'){
-                for (int j = sb.length()-i-1; j >= 0; j--) {
-                    if(sb.charAt(j)=='0'){
-                        sb.setCharAt(j,'1');
-                        break;
-                    }
-                    else {
-                        sb.setCharAt(j,'0');
-                    }
-                }
-            }
-        }
-
-        return sb.toString();*/
     }
 
 
